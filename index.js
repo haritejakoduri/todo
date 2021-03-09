@@ -1,7 +1,7 @@
 const express=require('express');
 const util=require('util');
 const nsmarty=require("nsmarty");
-nsmarty.tpl_path=__dirname+"/template/"
+nsmarty.tpl_path=__dirname+""
 
 const app=express();
 app.use(express.json())
