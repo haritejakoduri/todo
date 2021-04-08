@@ -2,6 +2,7 @@ import React, { useState,useContext, useEffect } from 'react';
 import { TodoContext } from '../../context/todoList/TodoContext';
 import {NewTodo} from './AddTodoform'
 import  './listStyle.css'
+import { List, Container, ListItem } from '@material-ui/core';
 export function Todo(){
     let [todoList,setTodoList,changeCompleted,addToLocalStorage,getFromLocalStorage]=useContext(TodoContext)
     useEffect(()=>{
@@ -12,14 +13,14 @@ export function Todo(){
         addToLocalStorage()
     },[todoList])
     return(
-        <div className='container'>
+        <Container maxWidth='md'>
         <NewTodo />
         {todoList==[]?<div>you don't have any task to do add one!</div>:(
-        <ul className='list-group'>
+        <List className='list-group'>
         {
         todoList.map(value=>{
             console.log(value)
-           return <li className={`list-group-item ${value.completed?" strikeThrough":''}`} key={value.id} onClick={()=>changeCompleted(value.id)}>{value.newTodo}</li>
+           return <ListItem className={`list-group-item ${value.completed?" strikeThrough":''}`} key={value.id} onClick={()=>changeCompleted(value.id)}>{value.newTodo}</ListItem>
         })
-    }</ul>)}</div>)
+    }</List>)}</Container>)
 }
