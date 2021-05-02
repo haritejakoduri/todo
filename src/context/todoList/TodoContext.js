@@ -28,6 +28,14 @@ export function TodoProvider(props){
     function addToLocalStorage(){
         localStorage.setItem('todos',JSON.stringify(todoList))
     }
+    function update(id,value){
+        let updatedtodo=todoList;
+        updatedtodo.map(obj=>{
+            if(obj.id==id){
+                obj.newTodo=value;
+            }
+        })
+    }
     return(
         <TodoContext.Provider value={[todoList,setTodoList,changeCompleted,addToLocalStorage,getFromLocalStorage]}>
             {props.children}

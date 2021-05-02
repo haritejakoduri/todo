@@ -3,6 +3,7 @@ import { TodoContext } from '../../context/todoList/TodoContext';
 import {NewTodo} from './AddTodoform'
 import  './listStyle.css'
 import { List, Container, ListItem } from '@material-ui/core';
+import EditTodo from './EditTodo'
 export function Todo(){
     let [todoList,setTodoList,changeCompleted,addToLocalStorage,getFromLocalStorage]=useContext(TodoContext)
     useEffect(()=>{
@@ -20,7 +21,7 @@ export function Todo(){
         {
         todoList.map(value=>{
             console.log(value)
-           return <ListItem className={`list-group-item ${value.completed?" strikeThrough":''}`} key={value.id} onClick={()=>changeCompleted(value.id)}>{value.newTodo}</ListItem>
+           return <ListItem className={`list-group-item ${value.completed?" strikeThrough":''}`} key={value.id} onClick={()=>changeCompleted(value.id)}>{value.newTodo} <EditTodo id={value.id}/></ListItem>
         })
     }</List>)}</Container>)
 }
