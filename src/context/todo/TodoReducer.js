@@ -3,9 +3,9 @@ import { CHANGE_STATE, TODO_ADD, TODO_REMOVE, TODO_UPDATE } from "./TodoAction"
 const todoReducer = (state,action) =>{
     switch(action.type){
         case TODO_ADD:
-            return {};
+            return {...state,todos:[...state.todos,action.payload]};
         case TODO_UPDATE:
-            return {};
+            return {...state,todos:[...state.todos.filter(k=>k===action.payload)]};
         case TODO_REMOVE:
             return {};
         case CHANGE_STATE:

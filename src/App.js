@@ -1,9 +1,15 @@
 import React from 'react';
-import { Input } from './container/inputForm';
+
+import TodoState from './context/todo/TodoState'
+import Todo from './views/Todo/index.js'
 export function App() {
     return(
-        <div className='container'>
 
+    <TodoState>
+        <div className='container'>
+            <Todo />
         </div>
+
+    </TodoState>
     )
 }
